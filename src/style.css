@@ -1,0 +1,15 @@
+/* Font Satoshi dari Fontshare */
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,300,400&display=swap");
+/* Font Libertinus Serif Display */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libertinus+Serif+Display&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-yellow: #f99933;
+  --color-slate: #eff1f4;
+  --color-red: #eb5757;
+  --color-coklat: #190d00;
+  --font-satoshi: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-libertinus: "Libertinus Serif Display", system-ui;
+}

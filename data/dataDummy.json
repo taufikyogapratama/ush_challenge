@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "nama": "Kamar 1",
+    "alamat": "Bandaraya Geortown, Northeast Penang, Penang",
+    "harga": 300,
+    "jumKamar": 3,
+    "jumKamarMandi": 1,
+    "luas": 500
+  },
+  {
+    "id": 2,
+    "nama": "Kamar 2",
+    "alamat": "Bandaraya Geortown, Northeast Penang, Penang",
+    "harga": 500,
+    "jumKamar": 5,
+    "jumKamarMandi": 2,
+    "luas": 600
+  },
+  {
+    "id": 3,
+    "nama": "Kamar 3",
+    "alamat": "Bandaraya Geortown, Northeast Penang, Penang",
+    "harga": 100,
+    "jumKamar": 1,
+    "jumKamarMandi": 0,
+    "luas": 300
+  },
+  {
+    "id": 4,
+    "nama": "Kamar 4",
+    "alamat": "Bandaraya Geortown, Northeast Penang, Penang",
+    "harga": 300,
+    "jumKamar": 2,
+    "jumKamarMandi": 1,
+    "luas": 600
+  },
+  {
+    "id": 5,
+    "nama": "Kamar 5",
+    "alamat": "Bandaraya Geortown, Northeast Penang, Penang",
+    "harga": 300,
+    "jumKamar": 1,
+    "jumKamarMandi": 1,
+    "luas": 300
+  },
+  {
+    "id": 6,
+    "nama": "Kamar 6",
+    "alamat": "Bandaraya Geortown, Northeast Penang, Penang",
+    "harga": 400,
+    "jumKamar": 1,
+    "jumKamarMandi": 1,
+    "luas": 500
+  }
+]
