@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Button from "./Button.vue";
-const logout = () => localStorage.removeItem("isLogin");
 </script>
 
 <template>
@@ -30,7 +29,8 @@ const logout = () => localStorage.removeItem("isLogin");
         </div>
       </div>
       <div class="right gap-5 flex">
-        <Button child="Logout" link="/login" @click="logout" />
+        <Button variant="scondary" child="Login" link="/login" />
+        <Button child="Register" link="/register" />
       </div>
     </div>
   </nav>

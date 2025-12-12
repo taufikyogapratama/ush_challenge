@@ -2,13 +2,20 @@ import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "../pages/Dashboard.vue";
 import Login from "../pages/Login.vue";
 import Register from "../pages/Register.vue";
+import DashboardGuest from "../pages/DashboardGuest.vue";
 // import NotFound from "../pages/NotFound.vue";
 
 const routes = [
   {
     path: "/",
+    name: "DashboardGuest",
+    component: DashboardGuest,
+  },
+  {
+    path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
+    meta: { requiresAuth: true },
   },
   {
     path: "/login",
@@ -25,6 +32,16 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const isLogin = localStorage.getItem("isLogin");
+
+  if (to.meta.requiresAuth && isLogin !== "true") {
+    return next("/login");
+  }
+
+  next();
 });
 
 export default router;

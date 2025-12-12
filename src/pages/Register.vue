@@ -1,4 +1,48 @@
-<script setup lang="ts"></script>
+<script setup>
+import { ref } from "vue";
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const fullname = ref("");
+const email = ref("");
+const role = ref("");
+const password = ref("");
+const confirmPassword = ref("");
+
+const register = async () => {
+  try {
+    const formData = new FormData();
+    formData.append("fullname", fullname.value);
+    formData.append("email", email.value);
+    formData.append("role", role.value);
+    formData.append("password", password.value);
+    const res = await fetch(`${import.meta.env.VITE_API_USH}/api/v1/register`, {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+    if (data.status === "success") {
+      localStorage.setItem("isLogin", "true");
+      router.push("/dashboard");
+    } else {
+      alert(data.message);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const submit = (e) => {
+  e.preventDefault();
+  if (password.value === confirmPassword.value) {
+    register();
+  } else {
+    alert("Password dan Confirm Password berbeda");
+  }
+};
+</script>
 
 <template>
   <section class="flex">
@@ -18,7 +62,7 @@
         >
           Register Now
         </h3>
-        <form>
+        <form @submit="submit">
           <label
             for="fullname"
             class="font-satoshi font-bold text-lg text-gray-700 block mb-1.5"
@@ -27,6 +71,7 @@
           <input
             type="text"
             id="fullname"
+            v-model="fullname"
             placeholder="Budi Siregar"
             class="w-full bg-orange py-2 px-5 rounded-lg"
           /><br />
@@ -38,6 +83,7 @@
           <input
             type="email"
             id="email"
+            v-model="email"
             placeholder="budi siregar@gmail.com"
             class="w-full bg-orange py-2 px-5 rounded-lg"
           /><br />
@@ -54,6 +100,7 @@
               <input
                 type="radio"
                 id="tenant"
+                v-model="role"
                 value="tenant"
                 class="ml-28"
                 name="role"
@@ -67,6 +114,7 @@
               <input
                 name="role"
                 type="radio"
+                v-model="role"
                 id="propertyOwner"
                 value="Property Owner"
                 class="ml-11"
@@ -84,6 +132,7 @@
           <input
             type="password"
             id="password"
+            v-model="password"
             placeholder="****************************"
             class="w-full bg-orange py-2 px-5 rounded-lg"
           />
@@ -95,6 +144,7 @@
           <input
             type="confirmPassword"
             id="confirmPassword"
+            v-model="confirmPassword"
             placeholder="****************************"
             class="w-full bg-orange py-2 px-5 rounded-lg mb-4"
           /><br />
